@@ -81,6 +81,8 @@ impl HealthReporter {
         S: AsRef<str>,
     {
         let service_name = service_name.as_ref();
+        println!("service_name: {:?}", service_name);
+
         let mut writer = self.statuses.write().await;
         match writer.get(service_name) {
             Some((tx, _)) => {
